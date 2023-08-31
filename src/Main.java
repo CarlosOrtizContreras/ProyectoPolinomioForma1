@@ -13,7 +13,9 @@ public class Main {
                             + "1. Mostrar Forma Vector \n"
                             + "2. Mostrar Forma Natural\n"
                             + "3. Operaciones con Polinomios\n"
-                            + "4. Salir"));
+                            + "4. Evaluar Polinomio\n"
+                            + "5. Insertar Monomio\n"
+                            + "6. Salir"));
 
             switch (opcion) {
                 case 1:
@@ -33,7 +35,8 @@ public class Main {
                                 "     ***** Bienvenido al Menu Operaciones *****     \n            Que Operacion desea Realizar?          \n"
                                         + "1. Suma de Polinomios \n"
                                         + "2. Resta de Polinomios\n"
-                                        + "3. Salir"));
+                                        + "3. Multiplicacion de Polinomios\n"
+                                        + "4. Salir"));
 
                         switch (opcionOp) {
                             case 1:
@@ -44,7 +47,11 @@ public class Main {
                                 funcional.Restar(poli);
                                 break;
 
-                            case 3:
+                            case 3: 
+                            funcional.Multiplicar(poli);
+                            break;
+
+                            case 4:
                                 controlOperaciones = false;
                                 break;
 
@@ -55,8 +62,15 @@ public class Main {
                         }
                     } while (controlOperaciones);
                     break;
-
                 case 4:
+                    funcional.Evaluar();
+                    break;
+
+                    case 5:
+                    funcional = funcional.Insertar(Coeficiente_Exponente());
+                    break;
+
+                case 6:
                     controlMenu = false;
                     JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema: ");
                     break;
@@ -73,7 +87,7 @@ public class Main {
         boolean controlPoli = true;
         String cadena = "";
         do {
-            cadena = "5+x-5";
+            cadena = "-7x^4+2x+2";
             if (cadena != "") {
                 controlPoli = false;
             }
