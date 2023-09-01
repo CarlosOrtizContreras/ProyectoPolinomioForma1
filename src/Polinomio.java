@@ -185,7 +185,53 @@ public class Polinomio {
 
     }
 
-    void Eliminar (int[]vec){
+    void Ajustar() {
+        int cont = 0, i = 2;
+        while (i <= du && vector[i] == 0) {
+            cont++;
+            i++;
+        }
+        while (i <= du) {
+            vector[i - cont] = vector[i];
+            i++;
+        }
+        du = du - cont;
+        redimencionar();
+    }
 
+    void redimencionar() {
+        int[] nuevo;
+        int i = 1;
+        nuevo = new int[du + 1];
+        while (i < du) {
+            nuevo[i] = vector[i];
+            i++;
+        }
+        Ajustar();
+    }
+
+    void Eliminar() {
+        int Exponente = 0, i = 0;
+        Exponente = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el exponente que desea eliminar"));
+        if (vector[0] >= Exponente) {
+            i++;
+            while (i < du || (du - i) == Exponente) {
+                i++;
+                if ((du - i) == Exponente) {
+                    if (vector[i] == 0) {
+                        JOptionPane.showMessageDialog(null, "Posicion vacia no se puede eliminar");
+                    } else {
+                        vector[i] = 0;
+                    }
+                }
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "El grado del polinomio es menor");
+        }
+        i=1;
+        if (vector[i]==0){
+            redimencionar();
+        }
     }
 }

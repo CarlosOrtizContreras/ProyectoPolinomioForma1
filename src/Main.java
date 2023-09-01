@@ -14,8 +14,9 @@ public class Main {
                             + "2. Mostrar Forma Natural\n"
                             + "3. Operaciones con Polinomios\n"
                             + "4. Evaluar Polinomio\n"
-                            + "5. Insertar Monomio\n"
-                            + "6. Salir"));
+                            + "5. Insertar Monomio\n "
+                            + "6. Eliminar monomio\n"
+                            + "7. Salir"));
 
             switch (opcion) {
                 case 1:
@@ -35,7 +36,7 @@ public class Main {
                                 "     ***** Bienvenido al Menu Operaciones *****     \n            Que Operacion desea Realizar?          \n"
                                         + "1. Suma de Polinomios \n"
                                         + "2. Resta de Polinomios\n"
-                                        + "3. Multiplicacion de Polinomios\n"
+                                        + "3. Multiplicación de polinomios\n"
                                         + "4. Salir"));
 
                         switch (opcionOp) {
@@ -65,12 +66,13 @@ public class Main {
                 case 4:
                     funcional.Evaluar();
                     break;
-
                 case 5:
-                    funcional = funcional.Insertar(Coeficiente_Exponente());
+                    funcional=funcional.Insertar(Coeficiente_Exponente());
                     break;
-
                 case 6:
+                    funcional.Eliminar();
+                    break;
+                case 7:
                     controlMenu = false;
                     JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema: ");
                     break;
@@ -87,7 +89,7 @@ public class Main {
         boolean controlPoli = true;
         String cadena = "";
         do {
-            cadena = "-7x^4+2x+2";
+            cadena = JOptionPane.showInputDialog("Ingrese el polinomio.\n Nota: utilice ^ para indicar el elevado y la X como variable");
             if (cadena != "") {
                 controlPoli = false;
             }
@@ -120,7 +122,7 @@ public class Main {
 
             } else if (vectorCaracter[i] == 'x') {
 
-                if (s == "-" || s == "+") {
+                if (s == "-" || s == "+" || s == "") {
                     s = s + "1";
                 }
                 vectorString[k] = s;
