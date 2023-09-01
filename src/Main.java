@@ -47,9 +47,9 @@ public class Main {
                                 funcional.Restar(poli);
                                 break;
 
-                            case 3: 
-                            funcional.Multiplicar(poli);
-                            break;
+                            case 3:
+                                funcional.Multiplicar(poli);
+                                break;
 
                             case 4:
                                 controlOperaciones = false;
@@ -66,7 +66,7 @@ public class Main {
                     funcional.Evaluar();
                     break;
 
-                    case 5:
+                case 5:
                     funcional = funcional.Insertar(Coeficiente_Exponente());
                     break;
 

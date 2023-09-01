@@ -161,7 +161,7 @@ public class Polinomio {
                         + multiplicar.MostrarNatural());
     }
 
-    Polinomio Insertar(int[] vec) {
+     Polinomio Insertar(int[] vec) {
         Polinomio nuevo = new Polinomio(vec);
         int g;
         if (nuevo.vector[0] > vector[0]) {
