@@ -1,95 +1,174 @@
-
 import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
 
-        Polinomio funcional = new Polinomio(Coeficiente_Exponente());
-        boolean controlMenu = true;
+        boolean controlMenu = true, Control = true, ControlMenu2 = true;
 
         do {
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog(
+            int opc = Integer.parseInt(JOptionPane.showInputDialog(
                     "   ***** Bienvenido al Menu de Polinomios *****   \n         Que accion desea ejecutar?          \n"
-                            + "1. Mostrar Forma Vector \n"
-                            + "2. Mostrar Forma Natural\n"
-                            + "3. Operaciones con Polinomios\n"
-                            + "4. Evaluar Polinomio\n"
-                            + "5. Insertar Monomio\n "
-                            + "6. Eliminar monomio\n"
-                            + "7. Salir"));
+                            + "1. Polinomio Forma 1 \n"
+                            + "2. Polinomio Forma 2\n"
+                            + "3. Polinomio Forma 3\n"
+                            + "4. Salir"));
 
-            switch (opcion) {
+            switch (opc) {
                 case 1:
-                    funcional.MostrarVector();
-                    break;
-
-                case 2:
-                    JOptionPane.showMessageDialog(null,
-                            "   *** El polinomio es: ***   \n" + funcional.MostrarNatural());
-                    break;
-
-                case 3:
-                    Polinomio poli = new Polinomio(Coeficiente_Exponente());
-                    boolean controlOperaciones = true;
+                    Polinomio funcional = new Polinomio(Coeficiente_Exponente());
                     do {
-                        int opcionOp = Integer.parseInt(JOptionPane.showInputDialog(
-                                "     ***** Bienvenido al Menu Operaciones *****     \n            Que Operacion desea Realizar?          \n"
-                                        + "1. Suma de Polinomios \n"
-                                        + "2. Resta de Polinomios\n"
-                                        + "3. Multiplicación de polinomios\n"
-                                        + "4. Salir"));
+                        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
+                                "   ***** Bienvenido al Menu de Polinomios *****   \n         Que accion desea ejecutar?          \n"
+                                        + "1. Mostrar Forma Vector \n"
+                                        + "2. Mostrar Forma Natural\n"
+                                        + "3. Operaciones con Polinomios\n"
+                                        + "4. Evaluar Polinomio\n"
+                                        + "5. Insertar Monomio\n "
+                                        + "6. Eliminar monomio\n"
+                                        + "7. Salir"));
 
-                        switch (opcionOp) {
+                        switch (opcion) {
                             case 1:
-                                funcional.Suma(poli);
+                                funcional.MostrarVector();
                                 break;
 
                             case 2:
-                                funcional.Restar(poli);
+                                JOptionPane.showMessageDialog(null,
+                                        "   *** El polinomio es: ***   \n" + funcional.MostrarNatural());
                                 break;
 
                             case 3:
-                                funcional.Multiplicar(poli);
-                                break;
+                                Polinomio poli = new Polinomio(Coeficiente_Exponente());
+                                boolean controlOperaciones = true;
+                                do {
+                                    int opcionOp = Integer.parseInt(JOptionPane.showInputDialog(
+                                            "     ***** Bienvenido al Menu Operaciones *****     \n            Que Operacion desea Realizar?          \n"
+                                                    + "1. Suma de Polinomios \n"
+                                                    + "2. Resta de Polinomios\n"
+                                                    + "3. Multiplicación de polinomios\n"
+                                                    + "4. Salir"));
 
+                                    switch (opcionOp) {
+                                        case 1:
+                                            funcional.Suma(poli);
+                                            break;
+
+                                        case 2:
+                                            funcional.Restar(poli);
+                                            break;
+
+                                        case 3:
+                                            funcional.Multiplicar(poli);
+                                            break;
+
+                                        case 4:
+                                            controlOperaciones = false;
+                                            break;
+
+                                        default:
+                                            JOptionPane.showMessageDialog(null, "Ingrese una opcion valida...");
+                                            break;
+
+                                    }
+                                } while (controlOperaciones);
+                                break;
                             case 4:
-                                controlOperaciones = false;
+                                funcional.Evaluar();
+                                break;
+                            case 5:
+                                funcional = funcional.Insertar(Coeficiente_Exponente());
+                                break;
+                            case 6:
+                                funcional.Eliminar();
+                                break;
+                            case 7:
+                                controlMenu = false;
+                                JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema: ");
                                 break;
 
                             default:
-                                JOptionPane.showMessageDialog(null, "Ingrese una opcion valida...");
+                                JOptionPane.showMessageDialog(null, "Ingrese una Opcion Valida: ");
                                 break;
-
                         }
-                    } while (controlOperaciones);
+
+                    } while (controlMenu);
                     break;
-                case 4:
-                    funcional.Evaluar();
-                    break;
-                case 5:
-                    funcional=funcional.Insertar(Coeficiente_Exponente());
-                    break;
-                case 6:
-                    funcional.Eliminar();
-                    break;
-                case 7:
-                    controlMenu = false;
-                    JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema: ");
+                case 2: {
+                    Polinomio2 definitivo = new Polinomio2(Coeficiente_Exponente());
+                    do {
+                        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
+                                "   ***** Bienvenido al Menu de Polinomios *****   \n         Que accion desea ejecutar?          \n"
+                                        + "1. Mostrar Forma Vector \n"
+                                        + "2. Mostrar Forma Natural\n"
+                                        + "3. Operaciones con Polinomios\n"
+                                        + "4. Evaluar Polinomio\n"
+                                        + "7. Salir"));
+
+                        switch (opcion) {
+                            case 1:
+                                definitivo.MostrarVectorf2();
+                                break;
+                            case 2:
+                                JOptionPane.showMessageDialog(null,
+                                        "   *** El polinomio es: ***   \n" + definitivo.MostrarNatural2());
+                                break;
+                            case 3:
+                            Polinomio2 poli = new Polinomio2(Coeficiente_Exponente());
+                                boolean controlOperaciones = true;
+                                do {
+                                    int opcionOp = Integer.parseInt(JOptionPane.showInputDialog(
+                                            "     ***** Bienvenido al Menu Operaciones *****     \n            Que Operacion desea Realizar?          \n"
+                                                    + "1. Suma de Polinomios \n"
+                                                    + "2. Resta de Polinomios\n"
+                                                    + "3. Multiplicación de polinomios\n"
+                                                    + "4. Salir"));
+
+                                    switch (opcionOp) {
+                                        case 1:
+                                            definitivo.SumaF2(poli);
+                                            break;
+
+                                        case 2:
+                                            definitivo.RestaF2(poli);
+                                            break;
+
+                                        /*case 3:
+                                            definitivo.Multiplicarf2(poli);
+                                            break;*/
+
+                                        case 4:
+                                            controlOperaciones = false;
+                                            break;
+
+                                        default:
+                                            JOptionPane.showMessageDialog(null, "Ingrese una opcion valida...");
+                                            break;
+                                        
+                                    }
+                                } while (controlOperaciones);
+                                break;
+                            case 4:
+                                definitivo.EvaluarF2();
+                                break;
+                            case 7:
+                                ControlMenu2 = false;
+                                JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema: ");
+                                break;
+                        }
+
+                    } while (ControlMenu2);
                     break;
 
-                default:
-                    JOptionPane.showMessageDialog(null, "Ingrese una Opcion Valida: ");
-                    break;
+                }
             }
-        } while (controlMenu);
-
+        } while (Control);
     }
 
     static int[] Coeficiente_Exponente() {
         boolean controlPoli = true;
         String cadena = "";
         do {
-            cadena = JOptionPane.showInputDialog("Ingrese el polinomio.\n Nota: utilice ^ para indicar el elevado y la X como variable");
+            cadena = "3+2x+3+x";
             if (cadena != "") {
                 controlPoli = false;
             }
@@ -174,5 +253,7 @@ public class Main {
         }
         return vector;
     }
+
+ 
 
 }
