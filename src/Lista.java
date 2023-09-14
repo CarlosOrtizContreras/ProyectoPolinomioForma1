@@ -5,13 +5,6 @@ public class Lista {
         this.punta = null;
     }
 
-    public Nodo getPunta() {
-        return punta;
-    }
-
-    public void setPunta(Nodo punta) {
-        this.punta = punta;
-    }
 
     void insertarInicio(int coeficiente, int exponente) {
         Nodo posicion;

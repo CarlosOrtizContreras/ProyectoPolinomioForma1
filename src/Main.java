@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 public class Main {
     public static void main(String[] args) {
 
-        boolean controlMenu = true, Control = true, ControlMenu2 = true;
+        boolean controlMenu = true, Control = true, ControlMenu2 = true, controlMenu3 = true;
 
         do {
             int opc = Integer.parseInt(JOptionPane.showInputDialog(
@@ -83,8 +83,7 @@ public class Main {
                                 break;
                             case 7:
                                 controlMenu = false;
-                                JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema: ");
-                                break;
+                                
 
                             default:
                                 JOptionPane.showMessageDialog(null, "Ingrese una Opcion Valida: ");
@@ -161,7 +160,7 @@ public class Main {
                                 break;
                             case 7:
                                 ControlMenu2 = false;
-                                JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema: ");
+                                
                                 break;
                         }
 
@@ -169,6 +168,92 @@ public class Main {
                     break;
 
                 }
+                case 3:
+                    Polinomio3 poli3 = new Polinomio3(Coeficiente_Exponente());
+                    do {
+                        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
+                                "   ***** Bienvenido al Menu de Polinomios *****   \n         Que accion desea ejecutar?          \n"
+                                        + "1. Mostrar Forma Vector \n"
+                                        + "2. Mostrar Forma Natural\n"
+                                        + "3. Operaciones con Polinomios\n"
+                                        + "4. Evaluar Polinomio\n"
+                                        + "5. Insertar Monomio\n"
+                                        + "6. Eliminar monomio\n"
+                                        + "7. Salir"));
+
+                        switch (opcion) {
+                            case 1:
+                                poli3.mostrarVector();
+                                break;
+
+                            case 2:
+                                JOptionPane.showMessageDialog(null,
+                                        "   *** El polinomio es: ***   \n" + poli3.mostrarNatural());
+                                break;
+
+                            case 3:
+                                
+                                boolean controlOperaciones = true;
+                                do {
+                                    int opcionOp = Integer.parseInt(JOptionPane.showInputDialog(
+                                            "     ***** Bienvenido al Menu Operaciones *****     \n            Que Operacion desea Realizar?          \n"
+                                                    + "1. Suma de Polinomios \n"
+                                                    + "2. Resta de Polinomios\n"
+                                                    + "3. Multiplicación de polinomios\n"
+                                                    + "4. Salir"));
+
+                                    switch (opcionOp) {
+                                        case 1:
+                                            poli3.sumar(Coeficiente_Exponente());
+                                            break;
+
+                                        case 2:
+                                            poli3.restar(Coeficiente_Exponente());
+                                            break;
+
+                                        case 3:
+                                           poli3.multiplicar(Coeficiente_Exponente());
+                                            break;
+
+                                        case 4:
+                                            controlOperaciones = false;
+                                            break;
+
+                                        default:
+                                            JOptionPane.showMessageDialog(null, "Ingrese una opcion valida...");
+                                            break;
+
+                                    }
+                                } while (controlOperaciones);
+                                break;
+                            case 4:
+                                poli3.evaluar();
+                                break;
+                            case 5:
+                               poli3.insertar(Coeficiente_Exponente());
+                                break;
+                            case 6:
+                                poli3.eliminar();
+                                break;
+                            case 7:
+                                controlMenu3 = false;
+                                
+                                break;
+
+                            default:
+                                JOptionPane.showMessageDialog(null, "Ingrese una Opcion Valida: ");
+                                break;
+                        }
+
+                    } while (controlMenu3);
+                break;
+
+                case 4:
+                    Control = false;
+                    JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema");
+                break;
+                default:
+                JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
             }
         } while (Control);
     }
@@ -177,7 +262,7 @@ public class Main {
         boolean controlPoli = true;
         String cadena = "";
         do {
-            cadena = "3+2x+3+x";
+            cadena = "3+2x+3+x-5x^9+3";
             if (cadena != "") {
                 controlPoli = false;
             }
