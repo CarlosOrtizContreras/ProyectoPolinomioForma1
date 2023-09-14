@@ -83,7 +83,6 @@ public class Main {
                                 break;
                             case 7:
                                 controlMenu = false;
-                                
 
                             default:
                                 JOptionPane.showMessageDialog(null, "Ingrese una Opcion Valida: ");
@@ -157,7 +156,7 @@ public class Main {
                                 break;
                             case 7:
                                 ControlMenu2 = false;
-                                
+
                                 break;
                         }
 
@@ -189,7 +188,7 @@ public class Main {
                                 break;
 
                             case 3:
-                                
+
                                 boolean controlOperaciones = true;
                                 do {
                                     int opcionOp = Integer.parseInt(JOptionPane.showInputDialog(
@@ -209,7 +208,7 @@ public class Main {
                                             break;
 
                                         case 3:
-                                           poli3.multiplicar(Coeficiente_Exponente());
+                                            poli3.multiplicar(Coeficiente_Exponente());
                                             break;
 
                                         case 4:
@@ -227,14 +226,14 @@ public class Main {
                                 poli3.evaluar();
                                 break;
                             case 5:
-                               poli3.insertar(Coeficiente_Exponente());
+                                poli3.insertar(Coeficiente_Exponente());
                                 break;
                             case 6:
                                 poli3.eliminar();
                                 break;
                             case 7:
                                 controlMenu3 = false;
-                                
+
                                 break;
 
                             default:
@@ -243,14 +242,14 @@ public class Main {
                         }
 
                     } while (controlMenu3);
-                break;
+                    break;
 
                 case 4:
                     Control = false;
                     JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema");
-                break;
+                    break;
                 default:
-                JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
+                    JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
             }
         } while (Control);
     }
@@ -305,10 +304,13 @@ public class Main {
                     i = i + 2;
 
                     s = s + vectorCaracter[i];
-                    while (Character.isDigit(vectorCaracter[i + 1])) {
-                        i++;
-                        s = s + vectorCaracter[i];
+                    if (i != vectorCaracter.length-1) {
+                        while (Character.isDigit(vectorCaracter[i + 1])) {
+                            i++;
+                            s = s + vectorCaracter[i];
+                        }
                     }
+
                     vectorString[k] = s;
                     s = "";
                     k++;
