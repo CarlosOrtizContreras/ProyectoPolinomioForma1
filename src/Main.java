@@ -133,11 +133,9 @@ public class Main {
                                             definitivo.RestaF2(poli);
                                             break;
 
-                                        /*
-                                         * case 3:
-                                         * definitivo.Multiplicarf2(poli);
-                                         * break;
-                                         */
+                                        case 3:
+                                            definitivo.Multiplicarf2(poli);
+                                            break;
 
                                         case 4:
                                             controlOperaciones = false;
@@ -146,7 +144,6 @@ public class Main {
                                         default:
                                             JOptionPane.showMessageDialog(null, "Ingrese una opcion valida...");
                                             break;
-
                                     }
                                 } while (controlOperaciones);
                                 break;
@@ -262,7 +259,7 @@ public class Main {
         boolean controlPoli = true;
         String cadena = "";
         do {
-            cadena = "3+2x+3+x-5x^9+3";
+            cadena = JOptionPane.showInputDialog("Ingrese el polinomio");
             if (cadena != "") {
                 controlPoli = false;
             }
