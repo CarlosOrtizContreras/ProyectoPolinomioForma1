@@ -102,6 +102,8 @@ public class Main {
                                         + "2. Mostrar Forma Natural\n"
                                         + "3. Operaciones con Polinomios\n"
                                         + "4. Evaluar Polinomio\n"
+                                        + "5. Insertar monomio\n"
+                                        + "6. Eliminar monomio\n"
                                         + "7. Salir"));
 
                         switch (opcion) {
@@ -113,7 +115,7 @@ public class Main {
                                         "   *** El polinomio es: ***   \n" + definitivo.MostrarNatural2());
                                 break;
                             case 3:
-                            Polinomio2 poli = new Polinomio2(Coeficiente_Exponente());
+                                Polinomio2 poli = new Polinomio2(Coeficiente_Exponente());
                                 boolean controlOperaciones = true;
                                 do {
                                     int opcionOp = Integer.parseInt(JOptionPane.showInputDialog(
@@ -132,9 +134,11 @@ public class Main {
                                             definitivo.RestaF2(poli);
                                             break;
 
-                                        /*case 3:
-                                            definitivo.Multiplicarf2(poli);
-                                            break;*/
+                                        /*
+                                         * case 3:
+                                         * definitivo.Multiplicarf2(poli);
+                                         * break;
+                                         */
 
                                         case 4:
                                             controlOperaciones = false;
@@ -143,12 +147,17 @@ public class Main {
                                         default:
                                             JOptionPane.showMessageDialog(null, "Ingrese una opcion valida...");
                                             break;
-                                        
+
                                     }
                                 } while (controlOperaciones);
                                 break;
                             case 4:
                                 definitivo.EvaluarF2();
+                            case 5:
+                                definitivo = definitivo.Insertar(Coeficiente_Exponente());
+                                break;
+                            case 6:
+                                definitivo.EliminarF2();
                                 break;
                             case 7:
                                 ControlMenu2 = false;
@@ -253,7 +262,5 @@ public class Main {
         }
         return vector;
     }
-
- 
 
 }
