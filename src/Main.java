@@ -83,7 +83,7 @@ public class Main {
                                 break;
                             case 7:
                                 controlMenu = false;
-
+                                break;
                             default:
                                 JOptionPane.showMessageDialog(null, "Ingrese una Opcion Valida: ");
                                 break;
