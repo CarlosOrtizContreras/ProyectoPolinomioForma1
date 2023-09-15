@@ -258,7 +258,7 @@ public class Main {
         boolean controlPoli = true;
         String cadena = "";
         do {
-            cadena = JOptionPane.showInputDialog("Ingrese el polinomio");
+            cadena = JOptionPane.showInputDialog("Ingrese el polinomio: ");
             if (cadena != "") {
                 controlPoli = false;
             }

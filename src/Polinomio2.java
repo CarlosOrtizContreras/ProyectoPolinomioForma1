@@ -48,7 +48,7 @@ public class Polinomio2 {
         this.vector = new int[t * 2 + 1];
         this.vector[0] = t;
         this.du = t * 2;
-        Llenadof2(vector);
+        Llenadof2(vector, mayor);
     }
 
     public Polinomio2(int t) {
@@ -57,18 +57,19 @@ public class Polinomio2 {
         this.du = (t * 2);
     }
 
-    private void Llenadof2(int[] vec) {
-        int Posicion = 0;
-        for (int i = 1; i < vec.length; i = i + 2) {
-            Posicion = du - 1 - vec[i];
-            if (vec[i] == 0) {
-                vector[Posicion] = vector[Posicion] + vec[i - 1];
-                Posicion = Posicion + 1;
-                vector[Posicion] = vec[i];
-            } else {
-                vector[Posicion - 1] = vector[Posicion - 1] + vec[i - 1];
-                vector[Posicion] = vec[i];
+    private void Llenadof2(int[] vec, int mayor) {
+        int exponente = 0;
+        int k=1;
+        while (mayor >= 0) {
+            for (int i = 1; i < vec.length; i = i + 2) {
+                exponente = vec[i];
+                if (exponente==mayor){
+                    vector[k]=vector[k]+vec[i-1];
+                    vector[k+1]=vec[i];
+                }
             }
+            mayor=mayor-1;
+            k=k+2;
         }
 
     }
@@ -276,37 +277,37 @@ public class Polinomio2 {
     }
 
     Polinomio2 Insertar(int[] vec) {
-    int t=(vector[0]+1)*2;
-    int [] resultante = new int [t];
-    for (int i= 0;i<vec.length;i++){
-        resultante[i]=vec[i];
-    }
-    int k=2;
-    for (int j=1;j<vector.length;j++){
-        resultante[k]=vector[j];
-        k++;
-    }
-    Polinomio2 nuevo = new Polinomio2(resultante);
+        int t = (vector[0] + 1) * 2;
+        int[] resultante = new int[t];
+        for (int i = 0; i < vec.length; i++) {
+            resultante[i] = vec[i];
+        }
+        int k = 2;
+        for (int j = 1; j < vector.length; j++) {
+            resultante[k] = vector[j];
+            k++;
+        }
+        Polinomio2 nuevo = new Polinomio2(resultante);
         return nuevo;
     }
 
-    void Multiplicarf2(Polinomio2 poli){
-        int g = vector[0] + poli.vector[0];
-        int vec[]= new int[g*2];
-        int u=0;
-        for (int i = 1; i < poli.vector.length; i=i+2) {
+    void Multiplicarf2(Polinomio2 poli) {
+        int g = vector[0] * poli.vector[0];
+        int vec[] = new int[g * 2];
+        int u = 0;
+        for (int i = 1; i < poli.vector.length; i = i + 2) {
             if (poli.vector[i] != 0) {
-                for (int k = 1; k < vector.length; k=k+2) {
+                for (int k = 1; k < vector.length; k = k + 2) {
                     if (vector[k] != 0) {
-                       vec[u]=poli.vector[i]*vector[k];
-                       u++;
-                       vec[u]=poli.vector[i+1]+vector[k+1];
-                       u++;
+                        vec[u] = poli.vector[i] * vector[k];
+                        u++;
+                        vec[u] = poli.vector[i + 1] + vector[k + 1];
+                        u++;
                     }
                 }
             }
         }
-        Polinomio2 Multiplicar=new Polinomio2(vec);
+        Polinomio2 Multiplicar = new Polinomio2(vec);
         JOptionPane.showMessageDialog(null,
                 "   *** El polinomio 1 es: ***   \n" + MostrarNatural2() + "\n   *** El polinomio 2 es: ***   \n"
                         + poli.MostrarNatural2() + "\n   *** La Multiplicacion es: ***   \n"
